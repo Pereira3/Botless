@@ -7,6 +7,4 @@ client.on('ready', () =>{
     console.log("Ready for Work!")
 });
 
-a
-
 client.login(token);
