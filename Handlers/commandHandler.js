@@ -28,6 +28,7 @@ function loadCommands(client){
     dev.commands.set(developerArray);
 
     return console.log(table.toString(), "\nLoaded Commands");
+    a
 }
 
 module.exports = {loadCommands};
