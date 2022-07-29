@@ -2,8 +2,4 @@ LICENSE
 node_modules
 package-lock.json
 package.json
-<<<<<<< HEAD
 config.json
-=======
-config.json
->>>>>>> 59a924910e0409d64ce4ca024f04afdbc264fc06
