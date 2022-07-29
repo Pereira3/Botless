@@ -20,11 +20,11 @@ function loadEvents(client){
                 else
                     client.on(event.name, (...args) => event.execute(...args, client));    
             }
-            table.addRow(file, "✔️")
+            table.addRow(file, "🟢")
             continue;
         }
     }
-    return console.log(table.toString(), "\nLoaded Commands");
+    return console.log(table.toString());
 }
 
 module.exports = {loadEvents};

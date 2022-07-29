@@ -18,7 +18,7 @@ function loadCommands(client){
             if(commandFile.developer) developerArray.push(commandFile.data.toJSON())
             else commandsArray.push(commandFile.data.toJSON());
         
-            table.addRow(file, "✔️");
+            table.addRow(file, "🟢");
             continue;
         }
     }
