@@ -1,11 +1,11 @@
-const {MessageEmbed, MembershipScreeningFieldType, Message} = require("discord.js");
+const {MessageEmbed} = require("discord.js");
 const moment = require('moment');
 
 module.exports = {
     name: "UserInfo",
     aliase: ['ui'],
     description: "Display the mentioned member's information or the command user's",
-    execute(message, args, commandName, client, Discord){
+    execute(message){
         const Target = message.mentions.users.first() || message.author;
         const Member = message.guild.members.cache.get(Target.id);
 
