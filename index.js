@@ -40,7 +40,7 @@ const HelpEmbed = {
 		},
         {
 			name: 'Server',
-			value: 'Members/members - Gives you the number of members in the actual server;\n\nServerIcon/servericon - Gives you the icon of this Server\n(*Note: If the icon is a gif, it will only work correctly if you see it in your URL.*)',
+			value: 'ServerIcon/servericon - Gives you the icon of this Server\n(*Note: If the icon is a gif, it will only work correctly if you see it in your URL.*)',
 			inline: false,
 		},
 		{
@@ -112,9 +112,7 @@ client.on('messageCreate', msg =>{
     //----CHECKING MGS----
 	if(msg.author.bot) return; //avoid bot loop messages and commands
 
-	if (msg.content === prefix + "Members" || msg.content === prefix + "members"){
-        return msg.reply (`This Server have ${client.guilds.cache.size} members in this moment`);
-    }else if (msg.content === prefix + 'Icon' || msg.content === prefix + "icon"){
+	if (msg.content === prefix + 'Icon' || msg.content === prefix + "icon"){
         msg.reply(`IconURL with full resolution: (<${msg.author.displayAvatarURL({ size: 2048, dynamic: true })}>)`);
 		msg.channel.send(`https://cdn.discordapp.com/avatars/${msg.author.id}/${msg.author.avatar}`);
     }else if (msg.content === prefix + 'ServerIcon' || msg.content === prefix + "servericon"){

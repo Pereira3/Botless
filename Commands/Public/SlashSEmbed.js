@@ -16,14 +16,14 @@ module.exports = {
 
         const ServerInfoEmbed = new EmbedBuilder()
             .setColor(0xffffff)
-            .setTitle(`${client.user.username}'s Owner GitHub`)
+            .setTitle(`${interaction.guild.name} Info`)
             .setThumbnail(interaction.guild.iconURL({ dynamic: true }))
             .addFields(
                 { name: 'Name:', value: `${interaction.guild.name}` },
                 { name: 'ID:', value: `${interaction.guild.id}` },
                 { name: 'Owner:', value: `${owner.user.username}` },
                 { name: 'Member Count:', value: `${interaction.guild.memberCount}`},
-                { name: 'Created In:', value: `${moment(client.user.createdAt).format('hh:mm:ss a')}\n${moment(client.user.createdAt).format('Do MMMM YYYY')}\n${moment(client.user.createdAt).startOf('day').fromNow()}`},
+                { name: 'Created In:', value: `${moment(interaction.guild.createdAt).format('hh:mm:ss a')}\n${moment(interaction.guild.createdAt).format('Do MMMM YYYY')}\n${moment(interaction.guild.createdAt).startOf('day').fromNow()}`},
             )
             .setTimestamp(Date.now())
             .setFooter({
