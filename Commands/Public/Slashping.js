@@ -9,7 +9,12 @@ module.exports = {
      * 
      * @param {CommandInteraction} interaction
      */
-    execute(interaction){
-        interaction.reply({content: "Pong", ephemeral: true})
+    async execute(interaction){
+        if (!interaction.isChatInputCommand()) return;
+
+	    if (interaction.commandName === 'ping') {
+            await interaction.reply({content: "Pong", ephemeral: true})
+            await interaction.followUp({content: "Pong Again", ephemeral:true})
+        }
     }
 }

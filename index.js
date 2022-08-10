@@ -26,7 +26,7 @@ const HelpEmbed = {
 		},
 		{
 			name: 'Prefix:',
-			value: 'The only prefix i have available until today is *',
+			value: 'The only prefix i have available until today is *\nI support Slash Commands and i listed them below.',
         },
         { //Take Space between the first Field and the Others
 			name: '\u200b',
@@ -53,9 +53,24 @@ const HelpEmbed = {
 			value: 'Icon/icon - Gives you the icon u are using in this moment;\n(*Note: If the icon is a gif, it will only work correctly if you see it in your URL.*)',
 			inline: false,
 		},
+		{ //Take Space between the first Field and the Others
+			name: '\u200b',
+			value: '\u200b',
+			inline: false,
+		},
 		{
-			name: 'Socials',
-			value: 'Git/git - Gives you my creator social;',
+			name: 'Slash Profile',
+			value: '/profile - Gives u your account informations',
+			inline: false,
+		},
+		{
+			name: 'Slash Server Info',
+			value: '/serverinfo - Gives u your currently server informations',
+			inline: false,
+		},
+		{
+			name: 'Slash GitHub',
+			value: '/git - Gives u my creator github account and my folders and files that were necessary to create me as u see nowadays',
 			inline: false,
 		},
 	],
@@ -99,8 +114,6 @@ client.on('messageCreate', msg =>{
 
 	if (msg.content === prefix + "Members" || msg.content === prefix + "members"){
         return msg.reply (`This Server have ${client.guilds.cache.size} members in this moment`);
-    }else if (msg.content === prefix + "Git" || msg.content === prefix + "git"){
-        return msg.reply ("GitHub account: https://github.com/Pereira3");
     }else if (msg.content === prefix + 'Icon' || msg.content === prefix + "icon"){
         msg.reply(`IconURL with full resolution: (<${msg.author.displayAvatarURL({ size: 2048, dynamic: true })}>)`);
 		msg.channel.send(`https://cdn.discordapp.com/avatars/${msg.author.id}/${msg.author.avatar}`);
