@@ -20,8 +20,8 @@ module.exports = {
                 { name: 'Name:', value: `${interaction.user.username}` },
                 { name: 'Tag:', value: `${interaction.user.tag}` },
                 { name: 'ID:', value: `${interaction.user.id}` },
-                { name: 'Created Since:', value: `${moment(client.user.createdAt).format('hh:mm:ss a')}\n${moment(client.user.createdAt).format('Do MMMM YYYY')}\n${moment(client.user.createdAt).startOf('day').fromNow()}`},
-            // >>>>    { name: 'Server Member Since:', value: `${moment(interaction.user.joinedAt).format('hh:mm:ss a')}\n${moment(interaction.user.joinedAt).format('Do MMMM YYYY')}\n${moment(interaction.user.joinedAt).startOf('day').fromNow()}` },
+                { name: 'Created Since:', value: `${moment(interaction.user.createdAt).format('hh:mm:ss a')}\n${moment(interaction.user.createdAt).format('Do MMMM YYYY')}\n${moment(interaction.user.createdAt).startOf('day').fromNow()}`},
+                //{ name: 'Server Member Since:', value: `${moment(interaction.user.joinedAt).format('hh:mm:ss a')}\n${moment(interaction.user.joinedAt).format('Do MMMM YYYY')}\n${moment(interaction.user.joinedAt).startOf('day').fromNow()}` },
             )
             .setTimestamp(Date.now())
             .setFooter({
