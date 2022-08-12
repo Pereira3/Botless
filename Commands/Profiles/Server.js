@@ -8,7 +8,7 @@ const moment = require('moment');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName("serverinfo")
+        .setName("svinfo")
         .setDescription("Display server's information"),
 
     async execute(interaction, client) {
