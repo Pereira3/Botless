@@ -32,15 +32,6 @@ client.on('messageCreate', msg =>{
 		});
 	}			
 })
-//------------------------------HELP------------------------------
-client.on('messageCreate', msg =>{
-    //----CHECKING MGS----
-    if(msg.author.bot) return; //avoid bot loop messages and commands
-
-    if(msg.content === prefix + "Help" || msg.content === prefix + "help"){
-        msg.reply({ embeds: [HelpEmbed] });
-    }//else if (msg.content === prefix + 'Profile' || msg.content === prefix + 'profile'){}
-})
 
 client.login(client.config.token).then(() => {
 	loadEvents(client);
