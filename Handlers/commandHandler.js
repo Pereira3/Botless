@@ -27,7 +27,7 @@ function loadCommands(client){
     const devGuild = client.guilds.cache.get(client.config.developerGuild);
     devGuild.commands.set(developerArray);
 
-    return console.log(table.toString(), "\nLoaded Commands");
+    return console.log(table.toString());
 }
 
 module.exports = {loadCommands};

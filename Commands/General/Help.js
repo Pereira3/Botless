@@ -8,22 +8,25 @@ const { SlashCommandBuilder, EmbedBuilder, Client, CommandInteraction } = requir
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("help")
-        .setDescription("Help Command with all the information u wanna know"),
+        .setDescription("Help Command with all the information you wanna know"),
 
     async execute(interaction, client) {
-        const ServerIcon = new EmbedBuilder()
+        const HelpEmbed = new EmbedBuilder()
             .setColor(0xffffff)
             .setTitle(`${client.user.username}`)
             .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
             .setURL('https://github.com/Pereira3/Botless')
-            .setDescription('Heyo\nI am Botless and i am here cause u want help, am i right?\n\nBelow are the commands that I present to date. Most of them are slash commands with the remaining commands working with * as the prefix.')
+            .setDescription("Heyo\nI am Botless and i am here cause u want help, am i right?\n\n___***How it works?***___\nAs you see, almost all my commands works with the ***slash***, if you don't know how to use them follow my instructions.\nFirstable - Use the slash to show the commands that the bots have, go to my section and see the commands i have.\nSecondable - Choose one command and if it works without any choice just press enter, if u have to choose just write the command you wanna followup.")
             .addFields(
                 { name: '\u200b', value: '\u200b'},
-                { name: 'Hello -> *hello', value: 'Dont be shy... Say Hello to Me;\n___Note___: I have subcommands Bad/bad | Good/good | Neither/neither], you can introduce the main command ( *hello ) and you can use the subcommands without the prefix, just right the answer that you want.\n'},
-                { name: 'Icons -> /icons', value: 'Gives you the icon you are using in this moment, or the icon of this Server or my icon;\n___Note___: When u write the command in the chat you will be able to choose the icon that you wanna see.\n'},
-                { name: 'Server -> /server', value: 'Gives u your currently server informations\n'},
-                { name: 'Profile -> /profile', value: 'Gives u your account informations\n'},
-                { name: 'Git -> /git', value: 'Gives u my creator github account and my folders and files that were necessary to create me as u see nowadays\n'},
+                { name: 'Hello -> *hello', value: 'Dont be shy... Say Hello to Me;\n'},
+                { name: 'My -> /my', value: "Display user's commands options;\n"},
+                { name: 'Server -> /server', value: "Display server's commands options;\n"},
+                { name: 'Bot -> /bot', value: 'Display my commands options;\n'},
+                { name: 'Git -> /git', value: "Gives you my creator git account and my git folder;\n"},
+                { name: 'Animal -> /animal', value: "Display random animal images or facts;\n"},
+                { name: 'Actions -> /actions', value: "Display actions from you to the other users;\n"},
+                { name: 'Use /helpcoms', value: 'To see the commands information with more detail use the /helpcoms and specifie the command you wanna explore better;'},
             )
             .setTimestamp(Date.now())
             .setFooter({
@@ -31,6 +34,6 @@ module.exports = {
                 iconURL: client.user.displayAvatarURL(),
                 text: client.user.username
             })
-        await interaction.reply({ embeds: [ServerIcon] });
+        await interaction.reply({ embeds: [HelpEmbed] });
     }
 }
