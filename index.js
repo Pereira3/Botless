@@ -5,6 +5,7 @@ const client = new Client({intents: 3276797});
 const { loadEvents } = require("./Handlers/eventHandler");
 const { loadCommands } = require("./Handlers/commandHandler");
 
+client.events = new Collection();
 client.commands = new Collection();
 client.config = require("./config.json");
 

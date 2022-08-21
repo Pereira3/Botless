@@ -22,6 +22,8 @@ module.exports = {
                     { name: 'Git', value:'git' },
                     { name: 'Animal', value:'animal' },
                     { name: 'Actions', value:'actions' },
+                    { name: 'Translate', value:'translate' },
+                    { name: 'Reload', value:'reload' },
                 )
         ),
     async execute(interaction, client) {
@@ -45,7 +47,7 @@ module.exports = {
                 .setColor(0xffffff)
                 .setTitle(`***My Command Help***`)
                 .setThumbnail("https://res.cloudinary.com/practicaldev/image/fetch/s--ypttW29q--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.imgur.com/j3IISku.gif")
-                .setDescription("As the ***my*** command -> I have options:\n\nIcon/icon\nProfile/profile\n\nAs i explained in the help command, when you use the ***slash my command***, you have to choose between icon or profile.\nIf you choose icon, i will provide you with your currently icon, if you choose profile, i will provide you some of your profile's informations.")
+                .setDescription("As the ***my*** command -> I have options:\n\nIcon\nProfile\n\nAs i explained in the help command, when you use the ***slash my command***, you have to choose between icon or profile.\nIf you choose icon, i will provide you with your currently icon, if you choose profile, i will provide you some of your profile's informations.")
                 .setTimestamp(Date.now())
                 .setFooter({
                     text: 'Hope this helps',
@@ -59,7 +61,7 @@ module.exports = {
                 .setColor(0xffffff)
                 .setTitle(`***Server Command Help***`)
                 .setThumbnail("https://res.cloudinary.com/practicaldev/image/fetch/s--ypttW29q--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.imgur.com/j3IISku.gif")
-                .setDescription("As the ***server*** command -> I have options:\n\nIcon/icon\nProfile/profile\n\nAs i explained in the help command, when you use the ***slash server command***, you have to choose between icon or profile.\nIf you choose icon, i will provide you with the currently server icon, if you choose profile, i will provide you some of currently server's informations.")
+                .setDescription("As the ***server*** command -> I have options:\n\nIcon\nProfile\n\nAs i explained in the help command, when you use the ***slash server command***, you have to choose between icon or profile.\nIf you choose icon, i will provide you with the currently server icon, if you choose profile, i will provide you some of currently server's informations.")
                 .setTimestamp(Date.now())
                 .setFooter({
                     text: 'Hope this helps',
@@ -73,7 +75,7 @@ module.exports = {
                 .setColor(0xffffff)
                 .setTitle(`***Bot Command Help***`)
                 .setThumbnail("https://res.cloudinary.com/practicaldev/image/fetch/s--ypttW29q--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.imgur.com/j3IISku.gif")
-                .setDescription("As the ***bot*** command -> I have options:\n\nIcon/icon\nProfile/profile\n\nAs i explained in the help command, when you use the ***slash bot command***, you have to choose between icon or profile.\nIf you choose icon, i will provide you with my currently icon, if you choose profile, i will provide you some of my currently informations.")
+                .setDescription("As the ***bot*** command -> I have options:\n\nIcon\nProfile\n\nAs i explained in the help command, when you use the ***slash bot command***, you have to choose between icon or profile.\nIf you choose icon, i will provide you with my currently icon, if you choose profile, i will provide you some of my currently informations.")
                 .setTimestamp(Date.now())
                 .setFooter({
                     text: 'Hope this helps',
@@ -101,7 +103,7 @@ module.exports = {
                 .setColor(0xffffff)
                 .setTitle(`***Animal Command Help***`)
                 .setThumbnail('https://res.cloudinary.com/practicaldev/image/fetch/s--ypttW29q--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.imgur.com/j3IISku.gif')
-                .setDescription("As the ***animal*** command -> I have 2 options: The first one you can choose the animal you want from the API list i have in this momment, and second one i have:\n\nFacts/fact\nImage/image\n\nAs i explained in the help command, when you use the ***slash animal command***, you have to choose between image or facts.\nIf you choose facts, i will provide you with random facts from the animal you choosed, if you choose image, i will provide you with random image from the animal you choosed.")
+                .setDescription("As the ***animal*** command -> I have 2 options:\n\nFacts\nImage\n\nAs i explained in the help command, when you use the ***slash animal command***, you have to choose between image or facts.\nIf you choose facts, i will provide you with random facts from the animal you choosed, if you choose image, i will provide you with random image from the animal you choosed.")
                 .setTimestamp(Date.now())
                 .setFooter({
                     text: 'Hope this helps',
@@ -115,7 +117,35 @@ module.exports = {
                 .setColor(0xffffff)
                 .setTitle(`***Actions Command Help***`)
                 .setThumbnail('https://res.cloudinary.com/practicaldev/image/fetch/s--ypttW29q--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.imgur.com/j3IISku.gif')
-                .setDescription("As the ***actions*** command -> I have options:\n\nWink/wink\nPat/pat\nHug/hug\n\nAs i explained in the help command, when you use the ***slash actions command***, you have to choose between wink, pat or hug.\nIf you choose wink, i will provide you with random wink gif, if you choose pat, i will provide you with random pat gif and if you choose hug, i will provide you with random hug gif.")
+                .setDescription("As the ***actions*** command -> I have options:\n\nWink\nPat\nHug\n\nAs i explained in the help command, when you use the ***slash actions command***, you have to choose between wink, pat or hug.\nIf you choose wink, i will provide you with random wink gif, if you choose pat, i will provide you with random pat gif and if you choose hug, i will provide you with random hug gif.")
+                .setTimestamp(Date.now())
+                .setFooter({
+                    text: 'Hope this helps',
+                    iconURL: client.user.displayAvatarURL(),
+                    text: client.user.username
+                })
+            await interaction.reply({ embeds: [Bot] });
+        }
+        if(options === "Translate" || options === "translate"){
+            const Bot = new EmbedBuilder()
+                .setColor(0xffffff)
+                .setTitle(`***Translate Command Help***`)
+                .setThumbnail('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Google_Translate_logo.svg/2048px-Google_Translate_logo.svg.png')
+                .setDescription("As the ***translate*** command -> I have subcommands:\n\nText\nFromLanguage\nToLanguage\n\nAs i explained in the help command, when you use the ***slash translate command***, you have to choose the text you wanna translate, the language from the text and you will receive the translated text.\n***This is the link where you can see the languages the API have available: https://cloud.google.com/translate/docs/languages ***.")
+                .setTimestamp(Date.now())
+                .setFooter({
+                    text: 'Hope this helps',
+                    iconURL: client.user.displayAvatarURL(),
+                    text: client.user.username
+                })
+            await interaction.reply({ embeds: [Bot] });
+        }
+        if(options === "Reload" || options === "reload"){
+            const Bot = new EmbedBuilder()
+                .setColor(0xffffff)
+                .setTitle(`***Reload Command Help***`)
+                .setThumbnail('https://res.cloudinary.com/practicaldev/image/fetch/s--ypttW29q--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.imgur.com/j3IISku.gif')
+                .setDescription("As the ***reload*** command -> I have options:\n\nEvents\nCommands\n\nAs i explained in the help command, when you use the ***slash reload command***, you have to choose between events or commands.\nIf you choose events, i will reload(restart) all the events i got in my code, if you choose commands, i will reload(restart) all the commands i got in my code.\n***Only adms can use this command***")
                 .setTimestamp(Date.now())
                 .setFooter({
                     text: 'Hope this helps',

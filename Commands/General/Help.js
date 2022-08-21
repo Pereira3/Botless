@@ -26,6 +26,8 @@ module.exports = {
                 { name: 'Git -> /git', value: "Gives you my creator git account and my git folder;\n"},
                 { name: 'Animal -> /animal', value: "Display random animal images or facts;\n"},
                 { name: 'Actions -> /actions', value: "Display actions from you to the other users;\n"},
+                { name: 'Translate -> /translate', value: "Display your original text and the translated from the language you choose;\n"},
+                { name: 'Reload -> /reload', value: "Reload the Commands or the Events.\n*Note: Only available to adms*;\n"},
                 { name: 'Use /helpcoms', value: 'To see the commands information with more detail use the /helpcoms and specifie the command you wanna explore better;'},
             )
             .setTimestamp(Date.now())
