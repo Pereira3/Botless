@@ -20,11 +20,20 @@ module.exports = {
                     { name: "Pat", value: "pat" },
                     { name: "Hug", value: "hug" },
                 )
+        )
+        .addUserOption((option) => 
+        option
+            .setName("target")
+            .setDescription("The member you want to mention")
+            .setRequired(true)
         ),
 
     async execute(interaction, client) {
-        const { options } = interaction;
+        const { guild, options } = interaction;
         const choice = options.getString("name")
+        const Target = interaction.options.getUser("target")
+        let Targets = guild.members.cache.get(Target.id);
+        Targets;
 
         let url = `https://some-random-api.ml/animu/${choice}/`;
 
@@ -36,7 +45,7 @@ module.exports = {
                 data = response.data;
                 const animu = new EmbedBuilder()
                 .setColor(0xffffff)
-                    .setTitle(`${interaction.user.username} is ${choice}ing to you`)
+                    .setTitle(`${interaction.user.username} is ${choice}ing to ${Targets.user.username}`)
                     .setTimestamp(Date.now())
                     .setImage(data.link)
                     .setFooter({
@@ -49,7 +58,7 @@ module.exports = {
                 data = response.data;
                 const animu = new EmbedBuilder()
                 .setColor(0xffffff)
-                    .setTitle(`${interaction.user.username} is ${choice}ing you`)
+                    .setTitle(`${interaction.user.username} is ${choice}ing ${Targets.user.username}.`)
                     .setTimestamp(Date.now())
                     .setImage(data.link)
                     .setFooter({
@@ -62,7 +71,7 @@ module.exports = {
                 data = response.data;
                 const animu = new EmbedBuilder()
                 .setColor(0xffffff)
-                    .setTitle(`${interaction.user.username} is ${choice}ing you`)
+                    .setTitle(`${interaction.user.username} is ${choice}ing ${Targets.user.username}`)
                     .setTimestamp(Date.now())
                     .setImage(data.link)
                     .setFooter({

@@ -34,8 +34,8 @@ module.exports = {
                 .setDescription("Select an Option")
                 .setRequired(true)
                 .addChoices(
-                    { name: "facts", value: "facts" },
-                    { name: "image", value: "img" },
+                    { name: "Facts", value: "facts" },
+                    { name: "Image", value: "img" },
                 )
         ),
 
@@ -65,7 +65,16 @@ module.exports = {
             } else if (choice === "facts") {
                 response = await axios.get(url);
                 data = response.data;
-                interaction.reply({ content: data.fact })
+                const animals = new EmbedBuilder()
+                    .setColor(0xffffff)
+                    .setTitle(`Random ${animalName} Fact:\n`)
+                    .setDescription(data.fact)
+                    .setTimestamp(Date.now())
+                    .setFooter({
+                        iconURL: client.user.displayAvatarURL(),
+                        text: client.user.username
+                    })
+                await interaction.reply({ embeds: [animals] })
             }
 
         } catch (e) {

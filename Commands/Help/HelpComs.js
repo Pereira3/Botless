@@ -24,6 +24,7 @@ module.exports = {
                     { name: 'Actions', value:'actions' },
                     { name: 'Translate', value:'translate' },
                     { name: 'Reload', value:'reload' },
+                    { name: 'Kick', value:'kick' },
                 )
         ),
     async execute(interaction, client) {
@@ -117,7 +118,7 @@ module.exports = {
                 .setColor(0xffffff)
                 .setTitle(`***Actions Command Help***`)
                 .setThumbnail('https://res.cloudinary.com/practicaldev/image/fetch/s--ypttW29q--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.imgur.com/j3IISku.gif')
-                .setDescription("As the ***actions*** command -> I have options:\n\nWink\nPat\nHug\n\nAs i explained in the help command, when you use the ***slash actions command***, you have to choose between wink, pat or hug.\nIf you choose wink, i will provide you with random wink gif, if you choose pat, i will provide you with random pat gif and if you choose hug, i will provide you with random hug gif.")
+                .setDescription("As the ***actions*** command -> I have subcommands and options:\n\nSubcommands: Name / User\n\nActions: Wink / Pat / Hug\n\nAs i explained in the help command, when you use the ***slash actions command***, you have to choose the action between wink, pat or hug and the user you want.\nIf you choose wink, i will provide you with random wink gif, if you choose pat, i will provide you with random pat gif and if you choose hug, i will provide you with random hug gif.")
                 .setTimestamp(Date.now())
                 .setFooter({
                     text: 'Hope this helps',
@@ -145,7 +146,21 @@ module.exports = {
                 .setColor(0xffffff)
                 .setTitle(`***Reload Command Help***`)
                 .setThumbnail('https://res.cloudinary.com/practicaldev/image/fetch/s--ypttW29q--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.imgur.com/j3IISku.gif')
-                .setDescription("As the ***reload*** command -> I have options:\n\nEvents\nCommands\n\nAs i explained in the help command, when you use the ***slash reload command***, you have to choose between events or commands.\nIf you choose events, i will reload(restart) all the events i got in my code, if you choose commands, i will reload(restart) all the commands i got in my code.\n***Only adms can use this command***")
+                .setDescription("As the ***reload*** command -> I have options:\n\nEvents\nCommands\n\nAs i explained in the help command, when you use the ***slash reload command***, you have to choose between events or commands.\nIf you choose events, i will reload(restart) all the events i got in my code, if you choose commands, i will reload(restart) all the commands i got in my code.\n***Only devs can use this command***")
+                .setTimestamp(Date.now())
+                .setFooter({
+                    text: 'Hope this helps',
+                    iconURL: client.user.displayAvatarURL(),
+                    text: client.user.username
+                })
+            await interaction.reply({ embeds: [Bot] });
+        }
+        if(options === "Kick" || options === "kick"){
+            const Bot = new EmbedBuilder()
+                .setColor(0xffffff)
+                .setTitle(`***Kick Command Help***`)
+                .setThumbnail('https://res.cloudinary.com/practicaldev/image/fetch/s--ypttW29q--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.imgur.com/j3IISku.gif')
+                .setDescription("As the ***kick*** command -> I have subcommands:\n\nTarget\nReason\n\nAs i explained in the help command, when you use the ***slash kick command***, you have to choose the user you want to kick.\nNext you will see one confirmation, if you choose the check you will kick the user and if you choose the x the process will be canceled.\n***Only users with permission to kick can use this command***")
                 .setTimestamp(Date.now())
                 .setFooter({
                     text: 'Hope this helps',
