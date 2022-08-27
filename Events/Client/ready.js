@@ -12,6 +12,6 @@ module.exports = {
     
     execute(client){
         console.log(`Client logged in as ${client.user.username}`);
-        client.user.setActivity(` ${client.guilds.cache.size} Servers | /help`, { type: ActivityType.Watching });
+        client.user.setActivity(` ${client.guilds.cache.size} Servers -> /help`, { type: ActivityType.Watching });
     },
 };

@@ -22,6 +22,9 @@ module.exports = {
         ),
 
     async execute(interaction, client) {
+
+        if(interaction.guild === null) return interaction.user.send("Command only available in Servers."); //ignore DM messages
+
         const options = interaction.options.getString("option")
         if (options === "Icon" || options === "icon") {
             const BotIcon = new EmbedBuilder()

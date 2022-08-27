@@ -43,7 +43,7 @@ module.exports = {
                 const Embed = new EmbedBuilder()
                     .setColor(0xffffff)
                     .setTitle(
-                        `Translated from ${fromlanguageName} into ${tolanguageName}`
+                        `📝 Translated from ${fromlanguageName} into ${tolanguageName}`
                     )
                     .addFields(
                         {

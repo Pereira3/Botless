@@ -22,8 +22,10 @@ module.exports = {
         ),
 
     async execute(interaction, client) {
-        const options = interaction.options.getString("option")
 
+        if(interaction.guild === null) return interaction.user.send("Command only available in Servers."); //ignore DM messagese
+
+        const options = interaction.options.getString("option")
         if (options === "Icon" || options === "icon") {
             const ServerIcon = new EmbedBuilder()
                 .setColor(0xffffff)

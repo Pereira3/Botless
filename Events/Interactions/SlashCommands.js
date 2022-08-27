@@ -14,7 +14,7 @@ module.exports = {
         const command = client.commands.get(interaction.commandName);
 
         if(!command){
-            return interaction.reply({content: "This command is outdated.",  ephemeral: true});
+            return interaction.reply({content: "Command Outdated.",  ephemeral: true});
         };
         if(command.developer && interaction.user.id != "295596122460782604"){
             //It checks if the command is a developer command (developer: true,) and if it is only the user whose ID is given there is able to use the command

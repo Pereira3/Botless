@@ -29,6 +29,7 @@ module.exports = {
         ),
 
     async execute(interaction, client) {
+        if(interaction.guild === null) return; //ignore DM messages
         const { guild, options } = interaction;
         const choice = options.getString("name")
         const Target = interaction.options.getUser("target")
