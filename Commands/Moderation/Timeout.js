@@ -9,6 +9,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName("timeout")
         .setDescription("Timeout the member you provided.")
+        .setDMPermission(false)
         .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
         .addUserOption((option) => 
             option
@@ -41,8 +42,6 @@ module.exports = {
 
     async execute(interaction, client) {
 
-        if(interaction.guild === null) return interaction.user.send("Command only available in Servers."); //ignore DM messages
-        
         const { guild, user } = interaction;
 
         const timeouttime = interaction.options.getString("duration")

@@ -7,6 +7,7 @@ const { SlashCommandBuilder, EmbedBuilder, Client, CommandInteraction } = requir
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("git")
+        .setDMPermission(false)
         .setDescription(`Display the bot's creator GitHub account`),
 
     async execute(interaction, client) {

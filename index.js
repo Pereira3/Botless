@@ -31,8 +31,9 @@ client.on('messageCreate', msg =>{
 				}
 			})
 		});
-	}			
+	}		
 })
+
 
 client.login(client.config.token).then(() => {
 	loadEvents(client);

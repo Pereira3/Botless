@@ -10,6 +10,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName("bot")
         .setDescription(`Display my commands options`)
+        .setDMPermission(false)
         .addStringOption((option) =>
             option
                 .setName("option")
@@ -23,9 +24,8 @@ module.exports = {
 
     async execute(interaction, client) {
 
-        if(interaction.guild === null) return interaction.user.send("Command only available in Servers."); //ignore DM messages
-
         const options = interaction.options.getString("option")
+
         if (options === "Icon" || options === "icon") {
             const BotIcon = new EmbedBuilder()
                 .setColor(0xffffff)
@@ -51,9 +51,9 @@ module.exports = {
                     { name: '• Discriminator:', value: `${client.user.discriminator}` },
                     { name: '• Tag:', value: `${client.user.tag}` },
                     { name: '• ID:', value: `${client.user.id}` },
+                    { name: '• Commands:', value: `${client.commands.size}`, inline: true},
+                    { name: '• Servers:', value: `${client.guilds.cache.size}`, inline: true},
                     { name: '• Owner:', value: '[Perëïra (...)](https://discordapp.com/users/295596122460782604/)'},
-                    { name: '• Commands:', value: `${client.commands.size}`},
-                    { name: '• Servers:', value: `${client.guilds.cache.size}`},
                     { name: '• Created In:', value: `${moment(client.user.createdAt).format('hh:mm:ss a')}\n${moment(client.user.createdAt).format('Do MMMM YYYY')}\n${moment(client.user.createdAt).startOf('day').fromNow()}` },
                 )
                 .setTimestamp(Date.now())

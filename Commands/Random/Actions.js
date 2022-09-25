@@ -9,6 +9,7 @@ const axios = require("axios");
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("actions")
+        .setDMPermission(false)
         .setDescription("Gives you the action from an option that you want")
         .addStringOption((option) =>
             option
@@ -29,7 +30,7 @@ module.exports = {
         ),
 
     async execute(interaction, client) {
-        if(interaction.guild === null) return; //ignore DM messages
+
         const { guild, options } = interaction;
         const choice = options.getString("name")
         const Target = interaction.options.getUser("target")

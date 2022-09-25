@@ -9,6 +9,7 @@ const axios = require("axios");
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("animal")
+        .setDMPermission(false)
         .setDescription("Gives you a picture of a animal.")
         .addStringOption((option) =>
             option

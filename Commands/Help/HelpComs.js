@@ -8,6 +8,7 @@ const { SlashCommandBuilder, EmbedBuilder, Client, CommandInteraction } = requir
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("helpcoms")
+        .setDMPermission(false)
         .setDescription("Help Embed with all the information about the especified command you wanna know")
         .addStringOption((option) =>
             option
@@ -29,8 +30,11 @@ module.exports = {
                     { name: 'Timeout', value:'timeout' },
                     { name: 'Clear', value:'clear' },
                     { name: 'Purge', value:'purge' },
+                    { name: 'Message', value:'message' },
+                    { name: 'Coinflip', value:'coinflip'},
                 )
         ),
+        
     async execute(interaction, client) {
         const options = interaction.options.getString("option")
         if(options === "Hello" || options === "hello"){
@@ -221,6 +225,34 @@ module.exports = {
                 .setTitle(`***Purge Command Help***`)
                 .setThumbnail('https://media.istockphoto.com/vectors/tools-icon-flat-vector-illustration-design-vector-id1161042024?k=20&m=1161042024&s=170667a&w=0&h=j-jaEitKsPz9xwipshNCQCvnMOXHozdtV_7m6l3V6kM=')
                 .setDescription("As the ***purge*** command -> I have subcommands:\n\nTarget\n\nAs i explained in the help command, when you use the ***slash purge command***, you have to choose the user you want to delete the messages in the currently channel that you are using this command.\n*This command doesn't have confirmation like the others moderation commands.*\n***Only users with administrator permission can use this command***")
+                .setTimestamp(Date.now())
+                .setFooter({
+                    text: 'Hope this helps',
+                    iconURL: client.user.displayAvatarURL(),
+                    text: client.user.username
+                })
+            await interaction.reply({ embeds: [Bot] });
+        }
+        if(options === "Message" || options === "message"){
+            const Bot = new EmbedBuilder()
+                .setColor(0xffffff)
+                .setTitle(`***Message Command Help***`)
+                .setThumbnail('https://media.istockphoto.com/vectors/tools-icon-flat-vector-illustration-design-vector-id1161042024?k=20&m=1161042024&s=170667a&w=0&h=j-jaEitKsPz9xwipshNCQCvnMOXHozdtV_7m6l3V6kM=')
+                .setDescription("As the ***message*** command -> I have subcommands:\n\nChannel\nTitle\nMessage\n\nAs i explained in the help command, when you use the ***slash message command***, you have to choose the channel you want to send the messages, the title of the embed message and the message.\n***Only users with administrator permission can use this command***")
+                .setTimestamp(Date.now())
+                .setFooter({
+                    text: 'Hope this helps',
+                    iconURL: client.user.displayAvatarURL(),
+                    text: client.user.username
+                })
+            await interaction.reply({ embeds: [Bot] });
+        }
+        if(options === "Coinflip" || options === "coinflip"){
+            const Bot = new EmbedBuilder()
+                .setColor(0xffffff)
+                .setTitle(`***Coinflip Command Help***`)
+                .setThumbnail('https://media1.giphy.com/media/8qpz12HY0GXHaKPxTn/giphy.gif')
+                .setDescription("As the ***coinflip*** command -> As i explained in the help command, when you use the ***slash coinflip command***, you have to choose one side of the coin and wait to see if you got it right or if you chose the wrong side of the coin by bad luck.")
                 .setTimestamp(Date.now())
                 .setFooter({
                     text: 'Hope this helps',

@@ -9,6 +9,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName("ban")
         .setDescription("Ban the member you provided.")
+        .setDMPermission(false)
         .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
         .addUserOption((option) => 
             option
@@ -24,9 +25,7 @@ module.exports = {
         ),
 
     async execute(interaction, client) {
-
-        if(interaction.guild === null) return interaction.user.send("Command only available in Servers."); //ignore DM messages
-
+        
         const { guild, user } = interaction;
 
         let owner = await interaction.guild.fetchOwner()

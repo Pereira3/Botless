@@ -6,6 +6,7 @@ const ISO6391 = require("iso-639-1");
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("translate")
+        .setDMPermission(false)
         .setDescription("Translate your Text")
         .addStringOption((options) =>
             options

@@ -9,6 +9,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName("kick")
         .setDescription("Kick the member you provided.")
+        .setDMPermission(false)
         .setDefaultMemberPermissions(PermissionFlagsBits.KickMembers)
         .addUserOption((option) => 
             option
@@ -24,8 +25,6 @@ module.exports = {
         ),
 
     async execute(interaction, client) {
-
-        if(interaction.guild === null) return interaction.user.send("Command only available in Servers."); //ignore DM messages
         
         const { guild, user } = interaction;
 
